@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+<!--Head-->
+
+{% block head %}
+
+<title>Task Master</title>
+
+{% endblock %}
+
+<!--Body-->
+
+{% block body %}
+
+<h1>AI Generated Subtasks</h1>
+<div class="content">
+    <h1>Sub Tasks</h1>
+    <div class="form">
+        <form action="/subtask/{{task.id}}" method="POST">
+            <input type="submit" value="Generate Subtask" />
+            <p type="text" name="content" id="content">{{task.content}}</p>
+            <div id="content">{{ task.subtask|safe }}</div>
+            <a href="/">Go Home</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

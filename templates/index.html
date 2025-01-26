@@ -21,12 +21,16 @@
     <table>
         <tr>
             <th>Task</th>
+            <th>AI Subtasks</th>
             <th>Added</th>
             <th>Actions</th>
         </tr>
         {% for task in tasks %}
         <tr>
             <td>{{ task.content }}</td>
+            <td>
+                <a href="/subtask/{{task.id}}">View</a>
+            </td>
             <td>{{ task.date_created.date() }}</td>
             <td>
                 <a href="/delete/{{task.id}}">Delete</a>
