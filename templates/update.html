@@ -2,28 +2,42 @@
 
 <!--Head-->
 
-{% block head %}
-
-<title>Task Master</title>
-
-{% endblock %}
+{% block head %} {% endblock %}
 
 <!--Body-->
 
 {% block body %}
 
-<h1>Template</h1>
 <div class="content">
-    <h1>Update Task</h1>
+    <h2>Update Task</h2>
     <div class="form">
         <form action="/update/{{task.id}}" method="POST">
             <input
                 type="text"
                 name="content"
                 id="content"
-                value="{{task.content}}"
+                value="edit: {{task.content}}"
+                style="
+                    border: 2px solid white;
+                    border-radius: 0;
+                    padding: 10px;
+                    color: white;
+                    background: rgb(43, 43, 43);
+                    cursor: pointer;
+                "
             />
-            <input type="submit" value="Update Task" />
+            <input
+                type="submit"
+                value="Update Task"
+                style="
+                    border: 2px solid white;
+                    border-radius: 0;
+                    padding: 10px;
+                    color: white;
+                    background: none;
+                    cursor: pointer;
+                "
+            />
         </form>
     </div>
 </div>

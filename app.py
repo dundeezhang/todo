@@ -1,14 +1,18 @@
 from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
+from dotenv import load_dotenv
 from openai import OpenAI
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 
+load_dotenv()
+
 client = OpenAI(
-    api_key=""
+    api_key=os.getenv("OPENAI_API_KEY"),
 )
 
 def get_subtasks(maintask):

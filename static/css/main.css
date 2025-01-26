@@ -3,3 +3,42 @@ body {
     margin: 0;
     font-family: sans-serif;
 }
+
+h1 {
+    text-align: center;
+}
+
+div.content {
+    width: 80vw;
+    margin: auto;
+}
+
+table {
+    border-collapse: collapse; /* Ensures borders don't double up */
+    width: 100%;
+    margin: 20px 0;
+}
+th,
+td {
+    border: 1px solid white; /* Adds border to cells */
+    padding: 10px; /* Adds padding for readability */
+    text-align: left; /* Aligns text to the left */
+}
+body {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+}
+
+th {
+    background-color: #333333; /* Dark header background */
+    color: #ffffff; /* Light header text color */
+}
+a {
+    color: #add8e6; /* Light blue color for links */
+    text-decoration: none;
+}
+
+a:visited {
+    color: #add8e6; /* Light blue color for links */
+    text-decoration: none;
+}

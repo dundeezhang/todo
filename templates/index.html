@@ -2,21 +2,45 @@
 
 <!--Head-->
 
-{% block head %}
-
-<title>Task Master</title>
-
-{% endblock %}
+{% block head %} {% endblock %}
 
 <!--Body-->
 
 {% block body %}
-
-<h1>Template</h1>
 <div class="content">
-    <h1>Task Master</h1>
+    <div style="text-align: center">
+        <form action="/" method="POST">
+            <input
+                type="text"
+                name="content"
+                id="content index-box"
+                style="
+                    width: 50%;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border-radius: 0;
+                    background-color: #333;
+                    color: #fff;
+                    border: 1px solid #fff;
+                "
+            />
+            <input
+                type="submit"
+                value="Add Task"
+                style="
+                    width: 20%;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border-radius: 0;
+                    background-color: #333;
+                    color: #fff;
+                    border: 1px solid #fff;
+                "
+            />
+        </form>
+    </div>
     {% if tasks|length < 1 %}
-    <h2>There are no tasks pending. Create one below</h2>
+    <h2>There are no tasks pending. Create one above</h2>
     {% else %}
     <table>
         <tr>
@@ -29,7 +53,10 @@
         <tr>
             <td>{{ task.content }}</td>
             <td>
-                <a href="/subtask/{{task.id}}">View</a>
+                <a href="/subtask/{{task.id}}" target="_blank"
+                    >View on Seperate Page</a
+                >
+                {{ task.subtask|safe }}
             </td>
             <td>{{ task.date_created.date() }}</td>
             <td>
@@ -41,10 +68,6 @@
         {% endfor %}
     </table>
     {% endif %}
-    <form action="/" method="POST">
-        <input type="text" name="content" id="content" />
-        <input type="submit" value="Add Task" />
-    </form>
 </div>
 
 {% endblock %}

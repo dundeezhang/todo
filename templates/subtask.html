@@ -2,11 +2,7 @@
 
 <!--Head-->
 
-{% block head %}
-
-<title>Task Master</title>
-
-{% endblock %}
+{% block head %} {% endblock %}
 
 <!--Body-->
 
@@ -14,15 +10,54 @@
 
 <h1>AI Generated Subtasks</h1>
 <div class="content">
-    <h1>Sub Tasks</h1>
-    <div class="form">
-        <form action="/subtask/{{task.id}}" method="POST">
-            <input type="submit" value="Generate Subtask" />
-            <p type="text" name="content" id="content">{{task.content}}</p>
-            <div id="content">{{ task.subtask|safe }}</div>
-            <a href="/">Go Home</a>
-        </form>
+    <div class="form-container">
+        <div class="form">
+            <form action="/subtask/{{task.id}}" method="POST">
+                <a
+                    href="/"
+                    style="
+                        border: 2px solid white;
+                        border-radius: 0;
+                        padding: 10px;
+                        color: white;
+                    "
+                    >Back</a
+                >
+                <input
+                    type="submit"
+                    value="Generate Subtasks"
+                    style="
+                        border: 2px solid white;
+                        border-radius: 0;
+                        padding: 10px;
+                        color: white;
+                        background: none;
+                        cursor: pointer;
+                    "
+                />
+
+                <h3>Task:</h3>
+                <p type="text" name="content" id="content">{{task.content}}</p>
+                <h3>Subtasks</h3>
+                <div id="content">{{ task.subtask|safe }}</div>
+            </form>
+        </div>
     </div>
+
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .form {
+            width: 100%;
+        }
+    </style>
 </div>
 
 {% endblock %}
